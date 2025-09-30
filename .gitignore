@@ -1,7 +1,7 @@
 .calva/output-window/
 .calva/repl.calva-repl
 .classpath
-.clj-kondo/.cache
+.clj-kondo
 .cpcache
 .eastwood
 .factorypath
@@ -9,8 +9,7 @@
 .hgignore
 .java-version
 .lein-*
-.lsp/.cache
-.lsp/sqlite.db
+.lsp
 .nrepl-history
 .nrepl-port
 .portal/vs-code.edn
@@ -27,3 +26,6 @@
 /checkouts
 /classes
 /target
+/node_modules
+/.shadow-cljs
+/resources/public/js
