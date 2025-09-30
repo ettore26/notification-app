@@ -7,7 +7,7 @@
   (let [body (:body request)
         notification-data (assoc body :channel "sms")
         result (channel-service/send-notification notification-data)]
-    {:status 200
+    {:status (if (:success result) 200 400)
      :headers {"Content-Type" "application/json"}
      :body result}))
 
@@ -15,7 +15,7 @@
   (let [body (:body request)
         notification-data (assoc body :channel "email")
         result (channel-service/send-notification notification-data)]
-    {:status 200
+    {:status (if (:success result) 200 400)
      :headers {"Content-Type" "application/json"}
      :body result}))
 
@@ -23,7 +23,7 @@
   (let [body (:body request)
         notification-data (assoc body :channel "push")
         result (channel-service/send-notification notification-data)]
-    {:status 200
+    {:status (if (:success result) 200 400)
      :headers {"Content-Type" "application/json"}
      :body result}))
 
