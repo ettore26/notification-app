@@ -2,10 +2,6 @@
 
 A Clojure-based notification service that provides a REST API for sending notifications across multiple channels (Email, SMS, Push) with category-based filtering (Sports, Finance, Movies). Built with Ring/Compojure for the backend and ClojureScript for the frontend.
 
-## Installation
-
-Download from https://github.com/app/core
-
 ## Usage
 
 ### For Release
@@ -17,16 +13,15 @@ Build and run uberjar:
 
 ### For Dev and Other
 
-Run the project, overriding the name to be greeted:
+Run the project CLJS directly:
 
-    $ clojure -X:run-x :name '"Someone"'
-    Hello, Someone!
+    $ npx shadow-cljs watch app
 
-Run the project directly, via `:main-opts` (`-m app.core`):
+Run the project CLJ directly:
 
     $ clojure -M:run
 
-Run the project's tests (they'll fail until you edit them):
+Run the project's tests:
 
     $ clojure -T:build test
 
@@ -34,7 +29,7 @@ Build an uberjar:
 
     $ clojure -T:build uberjar
 
-Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
+Run the project's CI pipeline and build an uberjar:
 
     $ clojure -T:build ci
 
