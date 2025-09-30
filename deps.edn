@@ -1,5 +1,15 @@
 {:paths ["src" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.12.1"}}
+ :deps {org.clojure/clojure {:mvn/version "1.12.3"}
+
+        compojure/compojure {:mvn/version "1.7.2"}
+        cheshire/cheshire {:mvn/version "6.1.0"}
+
+        ring/ring-core {:mvn/version "1.15.3"}
+        ring/ring-defaults {:mvn/version "0.7.0"}
+        ring/ring-json {:mvn/version "0.5.1"}
+        ring-cors/ring-cors {:mvn/version "0.1.13"}
+
+        ring/ring-jetty-adapter {:mvn/version "1.15.3"}}
  :aliases
  {:run-m {:main-opts ["-m" "app.core"]}
   :run-x {:ns-default app.core

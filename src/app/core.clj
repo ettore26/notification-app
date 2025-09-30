@@ -1,12 +1,23 @@
 (ns app.core
-  (:gen-class))
+  (:gen-class)
+  (:require
+   [app.middleware.middleware :refer [wrap-middleware]]
+   [app.route.category-routes :refer [category-routes]]
+   [compojure.core :refer [defroutes]]
+   [compojure.route :as route]
+   [ring.adapter.jetty :refer [run-jetty]]))
 
-(defn greet
-  "Callable entry point to the application."
-  [data]
-  (println (str "Hello, " (or (:name data) "World") "!")))
+(defn- not-found []
+  {:status 404
+   :headers {"Content-Type" "text/html"}
+   :body "Not Found"})
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (greet {:name (first args)}))
+(defroutes app-routes
+  category-routes
+  (route/not-found (not-found)))
+
+(def app (wrap-middleware app-routes))
+
+(defn -main [& _args]
+  (run-jetty app {:port 3000 :join? false})
+  (println "Server started on port 3000"))
