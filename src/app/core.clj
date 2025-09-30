@@ -3,6 +3,7 @@
   (:require
    [app.middleware.middleware :refer [wrap-middleware]]
    [app.route.category-routes :refer [category-routes]]
+   [app.route.channel-routes :refer [channel-routes]]
    [compojure.core :refer [defroutes]]
    [compojure.route :as route]
    [ring.adapter.jetty :refer [run-jetty]]))
@@ -14,6 +15,7 @@
 
 (defroutes app-routes
   category-routes
+  channel-routes
   (route/not-found (not-found)))
 
 (def app (wrap-middleware app-routes))
